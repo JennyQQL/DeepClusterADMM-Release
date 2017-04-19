@@ -102,8 +102,7 @@ best_pur = 0;
                     [f, df] = CG_CLUSTER_ADMM_R(VV,Dim,cur_data, cur_z, cur_u ,rho,R_data,R_cluster);
                 end
                 local_f = local_f + f;
-                local_f0 = local_f0 + f0;
-                local_f1 = local_f1 + f1;
+                
                 if useAdaDelta
                     accG = beta.* accG + (1-beta).*(df.^2);
                     dCurr = -(sqrt(accD + epsilon)./sqrt(accG+epsilon)).*df;
