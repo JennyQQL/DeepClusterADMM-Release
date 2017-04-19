@@ -11,6 +11,12 @@ demo
 ```
 to see the basic performance of DeepCluster.
 
+To dive into the implementation of DeepCluster. See
+```
+run_dkmeans.m
+run_dgmm_full.m
+```
+
 ## Make it better
 If you have better implementations or better hyper-parameter settings, please pull your requests. 
 
