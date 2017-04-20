@@ -22,7 +22,7 @@ pause
 %% run on Reuters10k
 % dc-kmeans
 fprintf('Running dc-kmeans on Reuters10k dataset\n');
-run_dkmeans('usps',1);
+run_dkmeans_relu('reutersidx10k',1);
 % dc-gmm
 fprintf('Running dc-gmm on Reuters10k dataset\n');
-run_dgmm_full('usps',1000);
+run_dgmm_full_relu('reutersidx10k',1000);
