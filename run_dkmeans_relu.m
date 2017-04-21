@@ -1,5 +1,5 @@
 %Run clustering now
-function run_dkmeans(datasetname, rho)
+function run_dkmeans_relu(datasetname, rho)
 % datasetname = 'usps';
 % rho = 1;
 % use_gpu = false;
@@ -38,7 +38,7 @@ end
 R_data = 1;
 batchsize = 100;
 
-MAX_ITER = 200;
+MAX_ITER = 300;
 useAdaDelta = false;
 useAdaGrad = false;
 finetuninglrate = 1e-3;
@@ -75,7 +75,7 @@ for iter = 1:MAX_ITER
 	for epoch = 1:Max_epoch
 		tt=0;
         local_f = 0;
-        G = zeros(size(VV));
+        %G = zeros(size(VV));
 		for batch = 1:N/batchsize
 			tt=tt+1;
 			cur_data = clusterdata((((tt-1)*batchsize+1):tt*batchsize),:);
