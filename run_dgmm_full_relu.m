@@ -29,8 +29,8 @@ accvalues = zeros(1,MAX_ITER);
 nmivalues = zeros(1,MAX_ITER);
 purvalues = zeros(1,MAX_ITER);
 
-finetuninglrate = 1e-4;
-R_cluster = 1e-4;
+finetuninglrate = 5e-4;
+R_cluster = 1e-5;
 
 load([cur_path '\fineweights\' datasetname '_fine_weights.mat']); % load finetuned weights
 l1=size(w1,1)-1;
@@ -70,7 +70,7 @@ CL = getclusterlabel(clusterdata,centro,w1,w2,w3,w4);
 
 % initialize gmm parameters with k-means
 fprintf('initializing GMM parameters\n');
-targetout = netcomput(clusterdata,w1,w2,w3,w4);
+targetout = netcomput_R(clusterdata,w1,w2,w3,w4);
 [pSigma,pi] = initializeGMM_full(targetout,CL,centro);
 %% begin iteration
 best_acc = 0;
@@ -142,8 +142,9 @@ best_pur = 0;
             end
             
             local_f = local_f/batch;
-            fprintf('Clustering epoch =  %d loss =  %.4f ',epoch,local_f);
+            
         end
+        fprintf('Clustering epoch =  %d loss =  %.4f ',iter,local_f);
         %% update z(dummy variables)
         % get target out
         %zold = z;
