@@ -23,9 +23,13 @@ for i = 1:K
   C(i,:)= C(i,:)./ counter(i);
 end
 %  
-centro = netcomput(C,w1,w2,w3,w4);%get centre from 'C' through the encoder nets
+if size(clusterdata,2)==2000
+     centro = netcomput_R(C,w1,w2,w3,w4);% for reuters dataset
+else
+     centro = netcomput(C,w1,w2,w3,w4);%get centre from 'C' through the encoder nets
+end
 %[CLK,centro] = kmeans(clusterdata,K);
- centro = netcomput(centro,w1,w2,w3,w4);
+
 batchBasis(:, :) = centro(CLK, :);%copy centre by CLK series for rand initial training.
 end
 
