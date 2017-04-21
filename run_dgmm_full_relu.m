@@ -1,5 +1,5 @@
 %Run GMM clustering now
-function run_dgmm_full(datasetname, rho)
+function run_dgmm_full_relu(datasetname, rho)
 % datasetname = 'mnist_full';
 % rho = 1000;
 
